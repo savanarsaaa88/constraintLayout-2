@@ -2,6 +2,8 @@ package com.example.constraintlayout2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,16 +38,34 @@ public class MainActivity extends AppCompatActivity {
         //membuat fungsi onclick pada button btnLogin
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 //menyimpan input user di edittext email kedalam variabel nama
                 nama = edEmail.getText().toString();
-
                 //menyimpan input user di edittext password kedalam variabel password
                 password = edPassword.getText().toString();
 
+                String Email    = "admin@mail.com";
+                String password = "123";
+
+                if (nama.isEmpty() || password.isEmpty()){
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            "Email dan Password wajib diisi", Toast.LENGTH_LONG);
+                    t.show();
+                }
+
                 //membuat variabel toast dan membuat toast dengan menambakan variabel nama dan password
                 if (nama.equals("admin@mail.com") && password.equals("123")) {
-                    Toast.makeText(MainActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Login Berhasil",
+                            Toast.LENGTH_SHORT).show();
+                    Bundle b = new Bundle();
+                    b.putString("a", nama.trim());
+                    b.putString("b", password.trim());
+
+                    Intent i = new Intent(getApplicationContext(), ActivityKedua.class);
+                    i.putExtras(b);
+
+                    startActivity(i);
+
                 } else if (nama.equals("admin@mail.com") && password.equals(password)) {
                     Toast.makeText(MainActivity.this, "Password Salah", Toast.LENGTH_SHORT).show();
                 } else if (nama.equals(nama) && password.equals("123")) {
