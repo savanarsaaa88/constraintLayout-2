@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Lihatdata">LihatData</string>
+    <string name="Editdata">EditData</string>
+    <string name="DataKontak">DataKontak</string>
+    <string name="NamaItem">Nama Item</string>
+    <string name="DetailKontak">Detail Kontak</string>
+    <string name="nama">Nama</string>
+    <string name="notel">Nomor Telepon</string>
+</resources>
